@@ -48,11 +48,11 @@ const App = () => {
           style={tailwind(
             'grid lg:grid-cols-2 gap-12 lg:gap-4 sm:grid-cols-1',
           )}>
-          <Towers arr={[...arr]} algo={'Bubble Sort'} />
+          {/* <Towers arr={[...arr]} algo={'Bubble Sort'} />
           <Towers arr={[...arr]} algo={'Selection Sort'} />
           <Towers arr={[...arr]} algo={'Merge Sort'} />
           <Towers arr={[...arr]} algo={'Insertion Sort'} />
-          <Towers arr={[...arr]} algo={'Quick Sort'} />
+          <Towers arr={[...arr]} algo={'Quick Sort'} /> */}
         </View>
       </SafeAreaView>
     </NavigationContainer>
