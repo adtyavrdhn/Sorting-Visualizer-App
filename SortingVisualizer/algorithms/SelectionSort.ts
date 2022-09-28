@@ -13,7 +13,9 @@ export default async function selectionSort(
     min_idx = i;
     for (j = i + 1; j < n; j++) {
       await delay(15);
-      if (arr[j] < arr[min_idx]) min_idx = j;
+      if (arr[j] < arr[min_idx]) {
+        min_idx = j;
+      }
     }
     swap(arr, min_idx, i);
     await delay(15);

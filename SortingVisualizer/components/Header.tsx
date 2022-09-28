@@ -23,7 +23,6 @@ function Header(props: ChangeInput) {
           setValue={props.setSizeValue}
         />
       </View>
-      <View style={tailwind('flex gap-5 self-end mt-3')}></View>
     </View>
   );
 }

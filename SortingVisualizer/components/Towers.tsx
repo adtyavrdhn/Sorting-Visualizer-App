@@ -70,7 +70,7 @@ function Towers(props: divs) {
               'bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md'
             }
             key={index}
-            style={{height: `${n / 10}rem`, width: '0.7%'}}
+            style={{height: `${n / 10}rem`, width: '0.7rem'}}
           />
         ))}
       </View>

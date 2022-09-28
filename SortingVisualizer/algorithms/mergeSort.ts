@@ -14,7 +14,9 @@ async function mergseSortRange(
   r: number,
   setArr: Function,
 ) {
-  if (l >= r) return;
+  if (l >= r) {
+    return;
+  }
 
   const m = Math.floor(l + (r - l) / 2);
   await mergseSortRange(list, l, m, setArr);
