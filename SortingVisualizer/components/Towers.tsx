@@ -15,7 +15,6 @@ interface divs {
 }
 
 function Towers(props: divs) {
-  const [towers, setTowers] = useState<JSX.Element[]>([]);
   const [narr, setnarr] = useState([0]);
   const [time, setTime] = useState('');
   const tailwind = useTailwind();
@@ -59,30 +58,22 @@ function Towers(props: divs) {
         await MergeSort([...narr], changeArr);
         break;
     }
-
-    // let endTime = performance.now();
-    // setTime(`${(endTime - startTime).toPrecision(8)} milliseconds`);
   }
-
-  useEffect(() => {
-    const temptowers: JSX.Element[] = narr.map((n: number, index: number) => (
-      <View
-        style={
-          (tailwind(
-            'bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md',
-          ),
-          {height: `${n / 10}rem`, width: `0.7%`})
-        }
-        key={index}
-      />
-    ));
-    setTowers(temptowers);
-  }, [narr]);
 
   return (
     <View style={tailwind('grid lg:gap-3 mt-1')}>
       <SortBtn sortingAlgo={props.algo} sort={sort} />
-      <View style={tailwind('flex gap-0.5 mt-1 justify-center')}>{towers}</View>
+      <View style={tailwind('flex gap-0.5 mt-1 justify-center')}>
+        {narr.map((n: number, index: number) => (
+          <div
+            className={
+              'bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md'
+            }
+            key={index}
+            style={{height: `${n / 10}rem`, width: '0.7%'}}
+          />
+        ))}
+      </View>
       <Text style={tailwind('text-center')}>Time Taken: {time}</Text>
     </View>
   );
