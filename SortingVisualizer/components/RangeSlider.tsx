@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import Slider from '@react-native-community/slider';
 
-function RangeSlider({name, max, min, step, value, disabled, setValue}: any) {
+function RangeSlider({name, max, min, step, value, setValue}: any) {
   const tailwind = useTailwind();
   return (
     <View style={tailwind('flex justify-center')}>
@@ -13,7 +13,6 @@ function RangeSlider({name, max, min, step, value, disabled, setValue}: any) {
         maximumValue={max}
         step={step}
         value={value}
-        disabled={disabled}
         onValueChange={data => setValue(data)}
       />
     </View>

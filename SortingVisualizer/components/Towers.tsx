@@ -65,12 +65,14 @@ function Towers(props: divs) {
       <SortBtn sortingAlgo={props.algo} sort={sort} />
       <View style={tailwind('flex gap-0.5 mt-1 justify-center')}>
         {narr.map((n: number, index: number) => (
-          <div
-            className={
-              'bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md'
+          <View
+            style={
+              (tailwind(
+                'bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md',
+              ),
+              {height: `${n / 10}rem`, width: '0.7rem'})
             }
             key={index}
-            style={{height: `${n / 10}rem`, width: '0.7rem'}}
           />
         ))}
       </View>

@@ -17,7 +17,6 @@ function Header(props: ChangeInput) {
           name={'Size'}
           min={10}
           max={80}
-          initialvalue={30}
           step={10}
           value={props.sizeValue}
           setValue={props.setSizeValue}
