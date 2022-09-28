@@ -11,13 +11,13 @@
 import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {useTailwind} from 'tailwind-rn';
+// import {useColorScheme} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Header from './components/Header';
 import Towers from './components/Towers';
+// import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {SafeAreaView, View} from 'react-native';
-
-// import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
   const [sizeValue, setSizeValue] = useState(20);
@@ -43,13 +43,13 @@ const App = () => {
   };
 
   ///////////////
-  function BubbleScreen() {
+  function SortScreen() {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={tailwind('text-black')}>
         <Header {...Headerprops} />
         <View
           style={tailwind(
-            'grid lg:grid-cols-2 gap-12 lg:gap-4 sm:grid-cols-1',
+            'grid lg:grid-cols-2 gap-12 lg:gap-4 sm:grid-cols-1 text-inherit',
           )}>
           <Towers arr={[...arr]} algo={'Bubble Sort'} />
         </View>
@@ -61,11 +61,11 @@ const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Bubble" component={BubbleScreen} />
-        <Tab.Screen name="Selection" component={BubbleScreen} />
-        <Tab.Screen name="Insertion" component={BubbleScreen} />
-        <Tab.Screen name="Quick" component={BubbleScreen} />
-        <Tab.Screen name="Merge" component={BubbleScreen} />
+        <Tab.Screen name="Bubble" component={SortScreen} />
+        {/* <Tab.Screen name="Selection" component={SortScreen} />
+        <Tab.Screen name="Insertion" component={SortScreen} />
+        <Tab.Screen name="Quick" component={SortScreen} />
+        <Tab.Screen name="Merge" component={SortScreen} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   );

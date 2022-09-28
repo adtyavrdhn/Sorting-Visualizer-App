@@ -7,7 +7,7 @@ function RangeSlider({name, max, min, step, value, setValue}: any) {
   const tailwind = useTailwind();
   return (
     <View style={tailwind('flex justify-center')}>
-      <Text style={tailwind('size mr-2 mt-0.2')}>{name}</Text>
+      <Text style={tailwind('size mr-2 mt-0.2 text-black')}>{name}</Text>
       <Slider
         minimumValue={min}
         maximumValue={max}
