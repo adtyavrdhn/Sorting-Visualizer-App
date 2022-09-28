@@ -10,18 +10,19 @@
 
 import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {useTailwind} from 'tailwind-rn';
 // import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Header from './components/Header';
 import Towers from './components/Towers';
 
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 
 // import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
   const [sizeValue, setSizeValue] = useState(20);
   const [arr, setArr] = useState([0]);
-
+  const tailwind = useTailwind();
   // changing array whenever the size slider changes
   useEffect(() => {
     const newArr: number[] = [];
@@ -43,28 +44,18 @@ const App = () => {
     <NavigationContainer>
       <SafeAreaView>
         <Header {...Headerprops} />
+        <View
+          style={tailwind(
+            'grid lg:grid-cols-2 gap-12 lg:gap-4 sm:grid-cols-1',
+          )}>
+          <Towers arr={[...arr]} algo={'Bubble Sort'} />
+          <Towers arr={[...arr]} algo={'Selection Sort'} />
+          <Towers arr={[...arr]} algo={'Merge Sort'} />
+          <Towers arr={[...arr]} algo={'Insertion Sort'} />
+          <Towers arr={[...arr]} algo={'Quick Sort'} />
+        </View>
       </SafeAreaView>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
 export default App;

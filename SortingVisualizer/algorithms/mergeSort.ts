@@ -1,13 +1,9 @@
-import { delay } from "./utility";
+import {delay} from './utility';
 
-export default async function mergeSort(
-  arr: number[],
-  setArr: Function,
-  speed: number
-) {
-  console.log("Merge Sort");
+export default async function mergeSort(arr: number[], setArr: Function) {
+  console.log('Merge Sort');
   const list: number[] = arr;
-  await mergseSortRange(list, 0, list.length - 1, setArr, speed);
+  await mergseSortRange(list, 0, list.length - 1, setArr);
   arr = [...list];
   return arr;
 }
@@ -17,14 +13,13 @@ async function mergseSortRange(
   l: number,
   r: number,
   setArr: Function,
-  speed: number
 ) {
   if (l >= r) return;
 
   const m = Math.floor(l + (r - l) / 2);
-  await mergseSortRange(list, l, m, setArr, speed);
-  await mergseSortRange(list, m + 1, r, setArr, speed);
-  await merge(list, l, m, r, setArr, speed);
+  await mergseSortRange(list, l, m, setArr);
+  await mergseSortRange(list, m + 1, r, setArr);
+  await merge(list, l, m, r, setArr);
 }
 
 async function merge(
@@ -33,7 +28,6 @@ async function merge(
   m: number,
   r: number,
   setArr: Function,
-  speed: number
 ) {
   const res = list.slice(l, r + 1);
   let i1 = l;

@@ -1,12 +1,11 @@
-import { delay } from "./utility";
+import {delay} from './utility';
 
 export default async function insertionSort(
   array: number[],
   n: number,
   setArr: Function,
-  speed: number
 ) {
-  console.log("Insertion Sort");
+  console.log('Insertion Sort');
 
   const arr: number[] = array;
   let i, key, j;

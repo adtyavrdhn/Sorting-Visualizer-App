@@ -1,13 +1,12 @@
-import { delay, swap } from "./utility";
+import {delay, swap} from './utility';
 
 async function partition(
   items: number[],
   left: number,
   right: number,
   setArr: Function,
-  speed: number
 ) {
-  console.log("Quick Sort");
+  console.log('Quick Sort');
   const pivot = items[Math.floor((right + left) / 2)];
   let i = left,
     j = right;
@@ -34,19 +33,18 @@ export default async function quickSort(
   left: number,
   right: number,
   setArr: Function,
-  speed: number
 ) {
   let index;
 
   const items: number[] = arr;
   if (items.length > 1) {
     await delay(15);
-    index = await partition(items, left, right, setArr, speed);
+    index = await partition(items, left, right, setArr);
     if (left < index - 1) {
-      await quickSort(items, left, index - 1, setArr, speed);
+      await quickSort(items, left, index - 1, setArr);
     }
     if (index < right) {
-      await quickSort(items, index, right, setArr, speed);
+      await quickSort(items, index, right, setArr);
     }
   }
 

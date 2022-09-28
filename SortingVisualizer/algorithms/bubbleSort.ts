@@ -1,13 +1,9 @@
-import { delay, swap } from "./utility";
+import {delay, swap} from './utility';
 
-export default async function bubbleSort(
-  arr: number[],
-  setArr: Function,
-  speed: number
-) {
+export default async function bubbleSort(arr: number[], setArr: Function) {
   const size = arr.length;
 
-  console.log("Bubble Sort");
+  console.log('Bubble Sort');
 
   const array: number[] = arr;
   for (let i = 0; i < size; i++) {

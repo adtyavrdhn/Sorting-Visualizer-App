@@ -12,7 +12,6 @@ import {useTailwind} from 'tailwind-rn';
 interface divs {
   arr: number[];
   algo: string;
-  speed: number;
 }
 
 function Towers(props: divs) {
@@ -45,19 +44,19 @@ function Towers(props: divs) {
     // let startTime = performance.now();
     switch (algorithm) {
       case Sorts.Bubble:
-        await bubbleSort([...narr], changeArr, props.speed);
+        await bubbleSort([...narr], changeArr);
         break;
       case Sorts.Quick:
-        await quickSort([...narr], 0, narr.length - 1, changeArr, props.speed);
+        await quickSort([...narr], 0, narr.length - 1, changeArr);
         break;
       case Sorts.Selection:
-        await selectionSort([...narr], narr.length, changeArr, props.speed);
+        await selectionSort([...narr], narr.length, changeArr);
         break;
       case Sorts.Insertion:
-        await insertionSort([...narr], narr.length, changeArr, props.speed);
+        await insertionSort([...narr], narr.length, changeArr);
         break;
       case Sorts.Merge:
-        await MergeSort([...narr], changeArr, props.speed);
+        await MergeSort([...narr], changeArr);
         break;
     }
 

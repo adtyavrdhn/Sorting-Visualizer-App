@@ -1,12 +1,11 @@
-import { delay, swap } from "./utility";
+import {delay, swap} from './utility';
 
 export default async function selectionSort(
   array: number[],
   n: number,
   setArr: Function,
-  speed: number
 ) {
-  console.log("Selection Sort");
+  console.log('Selection Sort');
   let i, j, min_idx;
 
   const arr: number[] = array;
