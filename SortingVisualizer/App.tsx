@@ -11,7 +11,7 @@
 import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {useTailwind} from 'tailwind-rn';
-// import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Header from './components/Header';
 import Towers from './components/Towers';
 
@@ -23,7 +23,9 @@ const App = () => {
   const [sizeValue, setSizeValue] = useState(20);
   const [arr, setArr] = useState([0]);
   const tailwind = useTailwind();
+  const Tab = createBottomTabNavigator();
   // changing array whenever the size slider changes
+
   useEffect(() => {
     const newArr: number[] = [];
     while (newArr.length < sizeValue) {
@@ -40,21 +42,31 @@ const App = () => {
     setSizeValue: setSizeValue,
   };
 
-  return (
-    <NavigationContainer>
+  ///////////////
+  function BubbleScreen() {
+    return (
       <SafeAreaView>
         <Header {...Headerprops} />
         <View
           style={tailwind(
             'grid lg:grid-cols-2 gap-12 lg:gap-4 sm:grid-cols-1',
           )}>
-          {/* <Towers arr={[...arr]} algo={'Bubble Sort'} />
-          <Towers arr={[...arr]} algo={'Selection Sort'} />
-          <Towers arr={[...arr]} algo={'Merge Sort'} />
-          <Towers arr={[...arr]} algo={'Insertion Sort'} />
-          <Towers arr={[...arr]} algo={'Quick Sort'} /> */}
+          <Towers arr={[...arr]} algo={'Bubble Sort'} />
         </View>
       </SafeAreaView>
+    );
+  }
+
+  ////////////////////
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Bubble" component={BubbleScreen} />
+        <Tab.Screen name="Selection" component={BubbleScreen} />
+        <Tab.Screen name="Insertion" component={BubbleScreen} />
+        <Tab.Screen name="Quick" component={BubbleScreen} />
+        <Tab.Screen name="Merge" component={BubbleScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };

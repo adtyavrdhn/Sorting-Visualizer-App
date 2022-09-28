@@ -63,19 +63,11 @@ function Towers(props: divs) {
   return (
     <View style={tailwind('grid lg:gap-3 mt-1')}>
       <SortBtn sortingAlgo={props.algo} sort={sort} />
-      <View style={tailwind('flex gap-0.5 mt-1 justify-center')}>
+      {/* <View style={tailwind('flex gap-0.5 mt-1 justify-center')}>
         {narr.map((n: number, index: number) => (
-          <View
-            style={
-              (tailwind(
-                'bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 rounded-md',
-              ),
-              {height: `${n / 10}rem`, width: '0.7rem'})
-            }
-            key={index}
-          />
+          <View style={{height: `${n / 10}rem`, width: '0.7%'}} key={index} />
         ))}
-      </View>
+      </View> */}
       <Text style={tailwind('text-center')}>Time Taken: {time}</Text>
     </View>
   );
