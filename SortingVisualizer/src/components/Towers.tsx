@@ -40,7 +40,6 @@ function Towers(props: divs) {
   }, [props.arr]);
 
   async function sort(algorithm: string) {
-    // let startTime = performance.now();
     switch (algorithm) {
       case Sorts.Bubble:
         await bubbleSort([...narr], changeArr);
