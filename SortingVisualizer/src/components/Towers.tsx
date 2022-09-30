@@ -6,7 +6,7 @@ import insertionSort from '../algorithms/insertionSort';
 import MergeSort from '../algorithms/mergeSort';
 import produce from 'immer';
 import SortBtn from './SortButton';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 
 interface divs {
@@ -72,16 +72,5 @@ function Towers(props: divs) {
     </View>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     marginTop: 50,
-//   },
-//   tower: {
-//     width: '15px',
-//     height: '30px',
-//     backgroundColor: '#000',
-//   },
-// });
 
 export default Towers;

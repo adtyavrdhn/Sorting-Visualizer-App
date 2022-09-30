@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {TailwindProvider, useTailwind} from 'tailwind-rn';
+import {TailwindProvider} from 'tailwind-rn';
 import utilities from '../tailwind.json';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Header from './components/Header';
-import Towers from './components/Towers';
-import {SafeAreaView, View, Text} from 'react-native';
+// import Header from './components/Header';
+// import Towers from './components/Towers';
+// import {SafeAreaView, View, Text} from 'react-native';
 import SortScreen from './components/SortScreen';
 
 const App = () => {
