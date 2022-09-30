@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, SafeAreaView, Text} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
 import Header from './Header';
 import Towers from './Towers';
 import {useTailwind} from 'tailwind-rn';
@@ -51,9 +51,6 @@ function SortScreen(props: any) {
       <Header sizeValue={sizeValue} setSizeValue={setSizeValue} />
       <SortBtn sortingAlgo={props.algo} sort={sort} />
       <View style={tailwind('flex flex-col')}>
-        <Text style={tailwind('text-4xl text-black')}>
-          {/* {JSON.stringify(arr)} */}
-        </Text>
         <Towers arr={arr} />
       </View>
     </SafeAreaView>
