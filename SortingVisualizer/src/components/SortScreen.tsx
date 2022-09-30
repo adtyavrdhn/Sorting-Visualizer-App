@@ -50,9 +50,9 @@ function SortScreen(props: any) {
     <SafeAreaView>
       <Header sizeValue={sizeValue} setSizeValue={setSizeValue} />
       <SortBtn sortingAlgo={props.algo} sort={sort} />
-      <View style={tailwind('flex flex-col border border-black')}>
+      <View style={tailwind('flex flex-col')}>
         <Text style={tailwind('text-4xl text-black')}>
-          {JSON.stringify(arr)}
+          {/* {JSON.stringify(arr)} */}
         </Text>
         <Towers arr={arr} />
       </View>

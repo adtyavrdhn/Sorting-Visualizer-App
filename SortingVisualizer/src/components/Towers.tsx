@@ -4,16 +4,22 @@ import {useTailwind} from 'tailwind-rn';
 
 function Towers(props: any) {
   const tailwind = useTailwind();
+
+  function towerStyles(n: number) {
+    return {
+      width: 4,
+      height: n * 2,
+      backgroundColor: 'powderblue',
+      marginRight: 1,
+    };
+  }
   return (
-    <View style={tailwind('flex flex-col')}>
-      {/* <View style={{...tailwind('flex flex-row')}}>
-        {narr.map((n: number, index: number) => (
-          <View
-            key={index}
-            style={[styles.tower, {height: `${n}px`, width: '15px'}]}
-          />
+    <View style={tailwind('flex flex-col justify-center')}>
+      <View style={{...tailwind('flex flex-row')}}>
+        {props.arr.map((n: number, index: number) => (
+          <View key={index} style={towerStyles(n)} />
         ))}
-      </View> */}
+      </View>
     </View>
   );
 }
