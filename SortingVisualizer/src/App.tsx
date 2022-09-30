@@ -8,21 +8,29 @@ import SortScreen from './components/SortScreen';
 const App = () => {
   const Tab = createBottomTabNavigator();
 
-  const Bsortscreen = () => <SortScreen algo="Bubble Sort" />;
-  const Msortscreen = () => <SortScreen algo="Merge Sort" />;
-  const Qsortscreen = () => <SortScreen algo="Quick Sort" />;
-  const Isortscreen = () => <SortScreen algo="Insertion Sort" />;
-  const Ssortscreen = () => <SortScreen algo="Selection Sort" />;
+  enum Sorts {
+    Bubble = 'Bubble Sort',
+    Selection = 'Selection Sort',
+    Insertion = 'Insertion Sort',
+    Merge = 'Merge Sort',
+    Quick = 'Quick Sort',
+  }
+
+  const Bsortscreen = () => <SortScreen algo={Sorts.Bubble} Sorts={Sorts} />;
+  const Msortscreen = () => <SortScreen algo={Sorts.Merge} Sorts={Sorts} />;
+  const Qsortscreen = () => <SortScreen algo={Sorts.Quick} Sorts={Sorts} />;
+  const Isortscreen = () => <SortScreen algo={Sorts.Insertion} Sorts={Sorts} />;
+  const Ssortscreen = () => <SortScreen algo={Sorts.Selection} Sorts={Sorts} />;
 
   return (
     <TailwindProvider utilities={utilities}>
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="Bubble" component={Bsortscreen} />
-          <Tab.Screen name="Selection" component={Ssortscreen} />
-          <Tab.Screen name="Merge" component={Msortscreen} />
-          <Tab.Screen name="Quick" component={Qsortscreen} />
-          <Tab.Screen name="Insertion" component={Isortscreen} />
+          <Tab.Screen name={Sorts.Bubble} component={Bsortscreen} />
+          <Tab.Screen name={Sorts.Selection} component={Ssortscreen} />
+          <Tab.Screen name={Sorts.Merge} component={Msortscreen} />
+          <Tab.Screen name={Sorts.Quick} component={Qsortscreen} />
+          <Tab.Screen name={Sorts.Insertion} component={Isortscreen} />
         </Tab.Navigator>
       </NavigationContainer>
     </TailwindProvider>

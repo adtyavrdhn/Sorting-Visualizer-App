@@ -3,6 +3,12 @@ import {View, SafeAreaView, Text} from 'react-native';
 import Header from './Header';
 import Towers from './Towers';
 import {useTailwind} from 'tailwind-rn';
+import bubbleSort from '../algorithms/bubbleSort';
+import quickSort from '../algorithms/quickSort';
+import selectionSort from '../algorithms/SelectionSort';
+import insertionSort from '../algorithms/insertionSort';
+import MergeSort from '../algorithms/mergeSort';
+import SortBtn from './SortButton';
 
 function SortScreen(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
@@ -20,14 +26,35 @@ function SortScreen(props: any) {
     setArr(newArr);
   }, [sizeValue]);
 
+  async function sort(algorithm: string) {
+    switch (algorithm) {
+      case props.Sorts.Bubble:
+        await bubbleSort([...arr], setArr);
+        break;
+      case props.Sorts.Quick:
+        await quickSort([...arr], 0, arr.length - 1, setArr);
+        break;
+      case props.Sorts.Selection:
+        await selectionSort([...arr], arr.length, setArr);
+        break;
+      case props.Sorts.Insertion:
+        await insertionSort([...arr], arr.length, setArr);
+        break;
+      case props.Sorts.Merge:
+        await MergeSort([...arr], setArr);
+        break;
+    }
+  }
+
   return (
     <SafeAreaView>
       <Header sizeValue={sizeValue} setSizeValue={setSizeValue} />
+      <SortBtn sortingAlgo={props.algo} sort={sort} />
       <View style={tailwind('flex flex-col border border-black')}>
         <Text style={tailwind('text-4xl text-black')}>
           {JSON.stringify(arr)}
         </Text>
-        <Towers arr={arr} algo={props.algo} />
+        <Towers arr={arr} />
       </View>
     </SafeAreaView>
   );
