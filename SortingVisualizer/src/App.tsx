@@ -5,36 +5,8 @@ import utilities from '../tailwind.json';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Header from './components/Header';
 import Towers from './components/Towers';
-
-import {SafeAreaView, Text, View} from 'react-native';
-
-const SortScreen = () => {
-  const [sizeValue, setSizeValue] = useState(20);
-  const [arr, setArr] = useState([0]);
-  const tailwind = useTailwind();
-
-  useEffect(() => {
-    const newArr: number[] = [];
-    while (newArr.length < sizeValue) {
-      const r = Math.floor(Math.random() * 100) + 50;
-      if (newArr.indexOf(r) === -1) {
-        newArr.push(r);
-      }
-    }
-    setArr(newArr);
-  }, [sizeValue]);
-
-  return (
-    <SafeAreaView>
-      <Header sizeValue={sizeValue} setSizeValue={setSizeValue} />
-      <View style={tailwind('flex flex-col h-full w-full border border-black')}>
-        <Text style={tailwind('text-4xl text-black')}>
-          {JSON.stringify(arr)}
-        </Text>
-      </View>
-    </SafeAreaView>
-  );
-};
+import {SafeAreaView, View, Text} from 'react-native';
+import SortScreen from './components/SortScreen';
 
 const App = () => {
   const Tab = createBottomTabNavigator();
@@ -43,7 +15,26 @@ const App = () => {
     <TailwindProvider utilities={utilities}>
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="Bubble" component={SortScreen} />
+          <Tab.Screen
+            name="Bubble"
+            component={() => <SortScreen algo="Bubble Sort" />}
+          />
+          <Tab.Screen
+            name="Selection"
+            component={() => <SortScreen algo="Selection Sort" />}
+          />
+          <Tab.Screen
+            name="Merge"
+            component={() => <SortScreen algo="Merge Sort" />}
+          />
+          <Tab.Screen
+            name="Quick"
+            component={() => <SortScreen algo="Quick Sort" />}
+          />
+          <Tab.Screen
+            name="Insertion"
+            component={() => <SortScreen algo="Insertion Sort" />}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </TailwindProvider>

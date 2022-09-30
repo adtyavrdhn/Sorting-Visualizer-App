@@ -6,7 +6,7 @@ import insertionSort from '../algorithms/insertionSort';
 import MergeSort from '../algorithms/mergeSort';
 import produce from 'immer';
 import SortBtn from './SortButton';
-import {Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 
 interface divs {
@@ -16,7 +16,7 @@ interface divs {
 
 function Towers(props: divs) {
   const [narr, setnarr] = useState([0]);
-  const [time, setTime] = useState('');
+  // const [time, setTime] = useState('');
   const tailwind = useTailwind();
 
   function changeArr(arr: number[]) {
@@ -36,7 +36,7 @@ function Towers(props: divs) {
 
   useEffect(() => {
     changeArr(props.arr);
-    setTime('');
+    // setTime('');
   }, [props.arr]);
 
   async function sort(algorithm: string) {
@@ -58,12 +58,30 @@ function Towers(props: divs) {
         break;
     }
   }
-
   return (
-    <View style={tailwind('grid lg:gap-3 mt-1 text-inherit')}>
+    <View style={tailwind('flex flex-col')}>
       <SortBtn sortingAlgo={props.algo} sort={sort} />
+      {/* <View style={{...tailwind('flex flex-row')}}>
+        {narr.map((n: number, index: number) => (
+          <View
+            key={index}
+            style={[styles.tower, {height: `${n}px`, width: '15px'}]}
+          />
+        ))}
+      </View> */}
     </View>
   );
 }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     marginTop: 50,
+//   },
+//   tower: {
+//     width: '15px',
+//     height: '30px',
+//     backgroundColor: '#000',
+//   },
+// });
 
 export default Towers;
