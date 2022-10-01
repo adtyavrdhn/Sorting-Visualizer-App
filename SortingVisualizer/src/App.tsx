@@ -1,11 +1,10 @@
 import React from 'react';
-import {View, ScrollView, Button} from 'react-native';
+import {ScrollView, Button, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from '../tailwind.json';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SortScreen from './components/SortScreen';
-import SortBtn from './components/SortButton';
 
 const App = () => {
   const Tab = createBottomTabNavigator();
@@ -48,12 +47,67 @@ const App = () => {
     <TailwindProvider utilities={utilities}>
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name={'All'} component={Allsortscreen} />
-          <Tab.Screen name={Sorts.Bubble} component={Bsortscreen} />
-          <Tab.Screen name={Sorts.Selection} component={Ssortscreen} />
-          <Tab.Screen name={Sorts.Merge} component={Msortscreen} />
-          <Tab.Screen name={Sorts.Quick} component={Qsortscreen} />
-          <Tab.Screen name={Sorts.Insertion} component={Isortscreen} />
+          {/* <Tab.Screen name={'All'} component={Allsortscreen} /> */}
+          <Tab.Screen
+            name={Sorts.Bubble}
+            component={Bsortscreen}
+            options={{
+              tabBarIcon: () => (
+                <Image
+                  source={require('./../assets/icons/icon.png')}
+                  style={{width: 20, height: 20}}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name={Sorts.Selection}
+            component={Ssortscreen}
+            options={{
+              tabBarIcon: () => (
+                <Image
+                  source={require('./../assets/icons/icon.png')}
+                  style={{width: 20, height: 20}}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name={Sorts.Merge}
+            component={Msortscreen}
+            options={{
+              tabBarIcon: () => (
+                <Image
+                  source={require('./../assets/icons/icon.png')}
+                  style={{width: 20, height: 20}}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name={Sorts.Quick}
+            component={Qsortscreen}
+            options={{
+              tabBarIcon: () => (
+                <Image
+                  source={require('./../assets/icons/icon.png')}
+                  style={{width: 20, height: 20}}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name={Sorts.Insertion}
+            component={Isortscreen}
+            options={{
+              tabBarIcon: () => (
+                <Image
+                  source={require('./../assets/icons/icon.png')}
+                  style={{width: 20, height: 20}}
+                />
+              ),
+            }}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </TailwindProvider>
