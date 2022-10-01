@@ -32,25 +32,35 @@ const App = () => {
   const Ssortscreen = () => (
     <SortScreen algo={Sorts.Selection} Sorts={Sorts} disable={false} />
   );
-  const Allsortscreen = () => (
-    <ScrollView>
-      <Button title={'ALL'} />
-      <SortScreen algo={Sorts.Bubble} Sorts={Sorts} disable={true} />
-      <SortScreen algo={Sorts.Merge} Sorts={Sorts} disable={true} />
-      <SortScreen algo={Sorts.Quick} Sorts={Sorts} disable={true} />
-      <SortScreen algo={Sorts.Insertion} Sorts={Sorts} disable={true} />
-      <SortScreen algo={Sorts.Selection} Sorts={Sorts} disable={true} />
-    </ScrollView>
-  );
+
+  function navIcon() {
+    return {
+      tabBarIcon: () => (
+        <Image
+          source={require('./../assets/icons/icon.png')}
+          style={{width: 24, height: 24}}
+        />
+      ),
+    };
+  }
+  // const Allsortscreen = () => (
+  //   <ScrollView>
+  //     <Button title={'ALL'} />
+  //     <SortScreen algo={Sorts.Bubble} Sorts={Sorts} disable={true} />
+  //     <SortScreen algo={Sorts.Merge} Sorts={Sorts} disable={true} />
+  //     <SortScreen algo={Sorts.Quick} Sorts={Sorts} disable={true} />
+  //     <SortScreen algo={Sorts.Insertion} Sorts={Sorts} disable={true} />
+  //     <SortScreen algo={Sorts.Selection} Sorts={Sorts} disable={true} />
+  //   </ScrollView>
+  // );
 
   return (
     <TailwindProvider utilities={utilities}>
       <NavigationContainer>
         <Tab.Navigator>
-          {/* <Tab.Screen name={'All'} component={Allsortscreen} /> */}
-          <Tab.Screen
-            name={Sorts.Bubble}
-            component={Bsortscreen}
+          {/* <Tab.Screen
+            name={'All'}
+            component={Allsortscreen}
             options={{
               tabBarIcon: () => (
                 <Image
@@ -59,54 +69,31 @@ const App = () => {
                 />
               ),
             }}
+          /> */}
+          <Tab.Screen
+            name={Sorts.Bubble}
+            component={Bsortscreen}
+            options={navIcon}
           />
           <Tab.Screen
             name={Sorts.Selection}
             component={Ssortscreen}
-            options={{
-              tabBarIcon: () => (
-                <Image
-                  source={require('./../assets/icons/icon.png')}
-                  style={{width: 24, height: 24}}
-                />
-              ),
-            }}
+            options={navIcon}
           />
           <Tab.Screen
             name={Sorts.Merge}
             component={Msortscreen}
-            options={{
-              tabBarIcon: () => (
-                <Image
-                  source={require('./../assets/icons/icon.png')}
-                  style={{width: 24, height: 20}}
-                />
-              ),
-            }}
+            options={navIcon}
           />
           <Tab.Screen
             name={Sorts.Quick}
             component={Qsortscreen}
-            options={{
-              tabBarIcon: () => (
-                <Image
-                  source={require('./../assets/icons/icon.png')}
-                  style={{width: 24, height: 24}}
-                />
-              ),
-            }}
+            options={navIcon}
           />
           <Tab.Screen
             name={Sorts.Insertion}
             component={Isortscreen}
-            options={{
-              tabBarIcon: () => (
-                <Image
-                  source={require('./../assets/icons/icon.png')}
-                  style={{width: 24, height: 24}}
-                />
-              ),
-            }}
+            options={navIcon}
           />
         </Tab.Navigator>
       </NavigationContainer>
