@@ -1,4 +1,5 @@
 import React from 'react';
+import {View, ScrollView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from '../tailwind.json';
@@ -21,11 +22,21 @@ const App = () => {
   const Qsortscreen = () => <SortScreen algo={Sorts.Quick} Sorts={Sorts} />;
   const Isortscreen = () => <SortScreen algo={Sorts.Insertion} Sorts={Sorts} />;
   const Ssortscreen = () => <SortScreen algo={Sorts.Selection} Sorts={Sorts} />;
+  const Allsortscreen = () => (
+    <ScrollView>
+      <SortScreen algo={Sorts.Bubble} Sorts={Sorts} />
+      <SortScreen algo={Sorts.Merge} Sorts={Sorts} />
+      <SortScreen algo={Sorts.Quick} Sorts={Sorts} />
+      <SortScreen algo={Sorts.Insertion} Sorts={Sorts} />
+      <SortScreen algo={Sorts.Selection} Sorts={Sorts} />
+    </ScrollView>
+  );
 
   return (
     <TailwindProvider utilities={utilities}>
       <NavigationContainer>
         <Tab.Navigator>
+          <Tab.Screen name={'All'} component={Allsortscreen} />
           <Tab.Screen name={Sorts.Bubble} component={Bsortscreen} />
           <Tab.Screen name={Sorts.Selection} component={Ssortscreen} />
           <Tab.Screen name={Sorts.Merge} component={Msortscreen} />
