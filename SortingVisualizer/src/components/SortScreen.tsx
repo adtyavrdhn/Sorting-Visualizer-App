@@ -55,7 +55,7 @@ function SortScreen(props: any) {
   return (
     <SafeAreaView>
       <Header sizeValue={sizeValue} setSizeValue={setSizeValue} />
-      <SortBtn sortingAlgo={props.algo} sort={sort} />
+      <SortBtn sortingAlgo={props.algo} sort={sort} disable={props.disable} />
       <Towers arr={arr} />
     </SafeAreaView>
   );

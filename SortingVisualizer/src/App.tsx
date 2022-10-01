@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from '../tailwind.json';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SortScreen from './components/SortScreen';
+import SortBtn from './components/SortButton';
 
 const App = () => {
   const Tab = createBottomTabNavigator();
@@ -17,18 +18,29 @@ const App = () => {
     Quick = 'Quick Sort',
   }
 
-  const Bsortscreen = () => <SortScreen algo={Sorts.Bubble} Sorts={Sorts} />;
-  const Msortscreen = () => <SortScreen algo={Sorts.Merge} Sorts={Sorts} />;
-  const Qsortscreen = () => <SortScreen algo={Sorts.Quick} Sorts={Sorts} />;
-  const Isortscreen = () => <SortScreen algo={Sorts.Insertion} Sorts={Sorts} />;
-  const Ssortscreen = () => <SortScreen algo={Sorts.Selection} Sorts={Sorts} />;
+  const Bsortscreen = () => (
+    <SortScreen algo={Sorts.Bubble} Sorts={Sorts} disable={false} />
+  );
+  const Msortscreen = () => (
+    <SortScreen algo={Sorts.Merge} Sorts={Sorts} disable={false} />
+  );
+  const Qsortscreen = () => (
+    <SortScreen algo={Sorts.Quick} Sorts={Sorts} disable={false} />
+  );
+  const Isortscreen = () => (
+    <SortScreen algo={Sorts.Insertion} Sorts={Sorts} disable={false} />
+  );
+  const Ssortscreen = () => (
+    <SortScreen algo={Sorts.Selection} Sorts={Sorts} disable={false} />
+  );
   const Allsortscreen = () => (
     <ScrollView>
-      <SortScreen algo={Sorts.Bubble} Sorts={Sorts} />
-      <SortScreen algo={Sorts.Merge} Sorts={Sorts} />
-      <SortScreen algo={Sorts.Quick} Sorts={Sorts} />
-      <SortScreen algo={Sorts.Insertion} Sorts={Sorts} />
-      <SortScreen algo={Sorts.Selection} Sorts={Sorts} />
+      <Button title={'ALL'} />
+      <SortScreen algo={Sorts.Bubble} Sorts={Sorts} disable={true} />
+      <SortScreen algo={Sorts.Merge} Sorts={Sorts} disable={true} />
+      <SortScreen algo={Sorts.Quick} Sorts={Sorts} disable={true} />
+      <SortScreen algo={Sorts.Insertion} Sorts={Sorts} disable={true} />
+      <SortScreen algo={Sorts.Selection} Sorts={Sorts} disable={true} />
     </ScrollView>
   );
 
