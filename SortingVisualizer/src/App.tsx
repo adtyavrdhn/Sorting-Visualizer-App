@@ -55,7 +55,7 @@ const App = () => {
               tabBarIcon: () => (
                 <Image
                   source={require('./../assets/icons/icon.png')}
-                  style={{width: 20, height: 20}}
+                  style={{width: 24, height: 24}}
                 />
               ),
             }}
@@ -67,7 +67,7 @@ const App = () => {
               tabBarIcon: () => (
                 <Image
                   source={require('./../assets/icons/icon.png')}
-                  style={{width: 20, height: 20}}
+                  style={{width: 24, height: 24}}
                 />
               ),
             }}
@@ -79,7 +79,7 @@ const App = () => {
               tabBarIcon: () => (
                 <Image
                   source={require('./../assets/icons/icon.png')}
-                  style={{width: 20, height: 20}}
+                  style={{width: 24, height: 20}}
                 />
               ),
             }}
@@ -91,7 +91,7 @@ const App = () => {
               tabBarIcon: () => (
                 <Image
                   source={require('./../assets/icons/icon.png')}
-                  style={{width: 20, height: 20}}
+                  style={{width: 24, height: 24}}
                 />
               ),
             }}
@@ -103,7 +103,7 @@ const App = () => {
               tabBarIcon: () => (
                 <Image
                   source={require('./../assets/icons/icon.png')}
-                  style={{width: 20, height: 20}}
+                  style={{width: 24, height: 24}}
                 />
               ),
             }}
