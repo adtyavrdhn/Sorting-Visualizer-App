@@ -19,7 +19,7 @@ function Header(props: ChangeInput) {
       <Slider
         style={tailwind('w-64')}
         minimumValue={10}
-        maximumValue={80}
+        maximumValue={50}
         step={10}
         value={props.sizeValue}
         onValueChange={data => props.setSizeValue(data)}

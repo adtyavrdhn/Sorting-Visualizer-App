@@ -7,15 +7,18 @@ function Towers(props: any) {
 
   function towerStyles(n: number) {
     return {
-      width: 4,
+      width: n / 20,
       height: n * 2,
       backgroundColor: 'powderblue',
       marginRight: 1,
     };
   }
   return (
-    <View style={tailwind('flex flex-col justify-center')}>
-      <View style={{...tailwind('flex flex-row'), justifyContent: 'center'}}>
+    <View style={tailwind('flex flex-col')}>
+      <View
+        style={{
+          ...tailwind('flex flex-row justify-center'),
+        }}>
         {props.arr.map((n: number, index: number) => (
           <View key={index} style={{...towerStyles(n)}} />
         ))}
