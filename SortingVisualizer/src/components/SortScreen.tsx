@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {View, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import Header from './Header';
 import Towers from './Towers';
-import {useTailwind} from 'tailwind-rn';
+// import {useTailwind} from 'tailwind-rn';
 import bubbleSort from '../algorithms/bubbleSort';
 import quickSort from '../algorithms/quickSort';
 import selectionSort from '../algorithms/SelectionSort';
@@ -13,7 +13,7 @@ import SortBtn from './SortButton';
 function SortScreen(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
   const [arr, setArr] = useState([0]);
-  const tailwind = useTailwind();
+  // const tailwind = useTailwind();
 
   useEffect(() => {
     const newArr: number[] = [];
@@ -23,7 +23,7 @@ function SortScreen(props: any) {
         newArr.push(r);
       }
     }
-    setArr(newArr);
+    setArr([...newArr]);
   }, [sizeValue]);
 
   async function sort(algorithm: string) {
@@ -50,9 +50,7 @@ function SortScreen(props: any) {
     <SafeAreaView>
       <Header sizeValue={sizeValue} setSizeValue={setSizeValue} />
       <SortBtn sortingAlgo={props.algo} sort={sort} />
-      <View style={tailwind('flex flex-col')}>
-        <Towers arr={arr} />
-      </View>
+      <Towers arr={arr} />
     </SafeAreaView>
   );
 }

@@ -15,9 +15,9 @@ function Towers(props: any) {
   }
   return (
     <View style={tailwind('flex flex-col justify-center')}>
-      <View style={{...tailwind('flex flex-row')}}>
+      <View style={{...tailwind('flex flex-row'), justifyContent: 'center'}}>
         {props.arr.map((n: number, index: number) => (
-          <View key={index} style={towerStyles(n)} />
+          <View key={index} style={{...towerStyles(n)}} />
         ))}
       </View>
     </View>
