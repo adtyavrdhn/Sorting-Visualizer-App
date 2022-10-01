@@ -1,7 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
-import LinearGradient from 'react-native-linear-gradient';
 
 function Towers(props: any) {
   const tailwind = useTailwind();
