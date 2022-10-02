@@ -8,7 +8,6 @@ import selectionSort from '../algorithms/SelectionSort';
 import insertionSort from '../algorithms/insertionSort';
 import MergeSort from '../algorithms/mergeSort';
 import SortBtn from './SortButton';
-import produce from 'immer';
 
 function SortScreen(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
@@ -22,32 +21,25 @@ function SortScreen(props: any) {
         newArr.push(r);
       }
     }
-    setArr([...newArr]);
-  }, [sizeValue]);
-
-  function changeArr(aarr: number[]) {
-    const newArr = produce(aarr, draft => {
-      return [...draft];
-    });
     setArr(newArr);
-  }
+  }, [sizeValue]);
 
   async function sort(algorithm: string) {
     switch (algorithm) {
       case props.Sorts.Bubble:
-        await bubbleSort([...arr], changeArr);
+        await bubbleSort(arr, setArr);
         break;
       case props.Sorts.Quick:
-        await quickSort([...arr], 0, arr.length - 1, changeArr);
+        await quickSort(arr, 0, arr.length - 1, setArr);
         break;
       case props.Sorts.Selection:
-        await selectionSort([...arr], arr.length, changeArr);
+        await selectionSort(arr, arr.length, setArr);
         break;
       case props.Sorts.Insertion:
-        await insertionSort([...arr], arr.length, changeArr);
+        await insertionSort(arr, arr.length, setArr);
         break;
       case props.Sorts.Merge:
-        await MergeSort([...arr], changeArr);
+        await MergeSort(arr, setArr);
         break;
     }
   }

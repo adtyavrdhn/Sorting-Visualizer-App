@@ -1,5 +1,5 @@
 export function delay(milliseconds: number) {
-  return new Promise(resolve => setTimeout(() => resolve, milliseconds));
+  return new Promise(resolve => setTimeout(() => resolve(null), milliseconds));
 }
 
 export function swap(arr: number[], i: number, j: number) {
