@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Button, Image} from 'react-native';
+import {Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from '../tailwind.json';

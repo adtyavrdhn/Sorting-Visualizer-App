@@ -4,8 +4,6 @@ export default async function mergeSort(arr: number[], changeArr: Function) {
   console.log('Merge Sort');
   const list: number[] = arr;
   await mergseSortRange(list, 0, list.length - 1, changeArr);
-  arr = [...list];
-  return arr;
 }
 
 async function mergseSortRange(
@@ -42,24 +40,24 @@ async function merge(
     if (v1 < v2) {
       list[i++] = v1;
       ++i1;
-      // await delay(15);
-      changeArr([...list]);
+      await delay(15);
+      changeArr(list);
     } else {
       list[i++] = v2;
       ++i2;
-      // await delay(15);
-      changeArr([...list]);
+      await delay(15);
+      changeArr(list);
     }
   }
 
   while (i1 <= m) {
     list[i++] = res[i1++ - l];
-    // await delay(15);
-    changeArr([...list]);
+    await delay(15);
+    changeArr(list);
   }
   while (i2 <= m) {
     list[i++] = res[i2++ - l];
-    // await delay(15);
-    changeArr([...list]);
+    await delay(15);
+    changeArr(list);
   }
 }

@@ -8,15 +8,14 @@ export default async function bubbleSort(arr: number[], changeArr: Function) {
 
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size - i - 1; j++) {
-      // await delay(15);
+      await delay(15);
       if (array[j] > array[j + 1]) {
-        // await delay(15);
+        await delay(15);
         swap(array, j, j + 1);
         changeArr(array);
       }
     }
-    // await delay(5);
+    await delay(5);
   }
-  console.log(arr);
   changeArr(array);
 }
