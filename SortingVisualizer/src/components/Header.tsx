@@ -6,6 +6,7 @@ import Slider from '@react-native-community/slider';
 interface ChangeInput {
   sizeValue: number;
   setSizeValue: Function;
+  sorting: boolean;
 }
 function Header(props: ChangeInput) {
   const tailwind = useTailwind();
@@ -23,6 +24,7 @@ function Header(props: ChangeInput) {
         step={10}
         value={props.sizeValue}
         onValueChange={data => props.setSizeValue(data)}
+        disabled={props.sorting}
       />
     </View>
   );

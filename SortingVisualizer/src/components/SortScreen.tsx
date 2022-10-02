@@ -13,6 +13,7 @@ import produce from 'immer';
 function SortScreen(props: any) {
   const [sizeValue, setSizeValue] = useState(20);
   const [arr, setArr] = useState([0]);
+  const [sorting, setSorting] = useState(false);
 
   useEffect(() => {
     const newArr: number[] = [];
@@ -50,12 +51,23 @@ function SortScreen(props: any) {
         await MergeSort([...arr], changeArr);
         break;
     }
+    setSorting(false);
   }
 
   return (
     <SafeAreaView>
-      <Header sizeValue={sizeValue} setSizeValue={setSizeValue} />
-      <SortBtn sortingAlgo={props.algo} sort={sort} disable={props.disable} />
+      <Header
+        sizeValue={sizeValue}
+        setSizeValue={setSizeValue}
+        sorting={sorting}
+      />
+      <SortBtn
+        sortingAlgo={props.algo}
+        sort={sort}
+        disable={sorting}
+        sorting={sorting}
+        setSorting={setSorting}
+      />
       <Towers arr={arr} />
     </SafeAreaView>
   );
