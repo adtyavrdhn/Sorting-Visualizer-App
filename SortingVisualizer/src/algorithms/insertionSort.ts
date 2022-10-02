@@ -5,7 +5,6 @@ export default async function insertionSort(
   n: number,
   changeArr: Function,
 ) {
-  console.log('Insertion Sort');
   const arr: number[] = array;
 
   let i, key, j;

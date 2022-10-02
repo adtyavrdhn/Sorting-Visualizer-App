@@ -1,7 +1,6 @@
 import {delay} from './utility';
 
 export default async function mergeSort(arr: number[], changeArr: Function) {
-  console.log('Merge Sort');
   const list: number[] = arr;
   await mergseSortRange(list, 0, list.length - 1, changeArr);
 }

@@ -3,7 +3,6 @@ import {delay, swap} from './utility';
 export default async function bubbleSort(arr: number[], changeArr: Function) {
   const size = arr.length;
 
-  console.log('Bubble Sort');
   const array: number[] = arr;
 
   for (let i = 0; i < size; i++) {

@@ -6,7 +6,6 @@ async function partition(
   right: number,
   changeArr: Function,
 ) {
-  console.log('Quick Sort');
   const pivot = items[Math.floor((right + left) / 2)];
   let i = left,
     j = right;
